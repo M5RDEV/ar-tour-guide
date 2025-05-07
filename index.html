@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المرشد السياحي العربي - دليل شامل لكل الدول العربية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-light: #3b82f6;
+            --secondary-color: #1e40af;
+            --accent-color: #dc2626;
+            --light-color: #f8fafc;
+            --dark-color: #1e293b;
+            --text-color: #334155;
+            --border-radius: 16px;
+            --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--text-color);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            border-radius: var(--border-radius);
+            margin-bottom: 2.5rem;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid rgba(255, 255, 255, 0.1);
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 1s ease;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .header-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            padding: 18px 30px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .stat-box i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .stat-box span {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .search-box {
+            max-width: 800px;
+            margin: 2rem auto 0;
+            position: relative;
+            animation: fadeInUp 1s ease;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 20px 30px 20px 60px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.2);
+        }
+
+        .search-box button {
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            animation: fadeIn 1s ease;
+        }
+
+        .filter-btn {
+            padding: 14px 24px;
+            background: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            color: var(--dark-color);
+            box-shadow: var(--box-shadow);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .filter-btn.active {
+            background: var(--gradient);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Country Cards Grid */
+        .countries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+            gap: 35px;
+            margin-top: 2rem;
+        }
+
+        .country-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 50px;
+        }
+
+        .country-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .country-flag {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .country-flag::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent 50%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .country-card:hover .country-flag::after {
+            opacity: 1;
+        }
+
+        .country-flag img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            transition: var(--transition);
+        }
+
+        .country-card:hover .country-flag img {
+            transform: scale(1.1);
+        }
+
+        .country-info {
+            padding: 28px;
+        }
+
+        .country-name {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-weight: 700;
+        }
+
+        .country-name span {
+            font-size: 1.1rem;
+            background: var(--gradient);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .country-details {
+            margin-bottom: 25px;
+        }
+
+        .detail-row {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+
+        .detail-label {
+            font-weight: 700;
+            min-width: 100px;
+            color: var(--dark-color);
+        }
+
+        .detail-value {
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .currency-value {
+            color: var(--accent-color);
+            font-weight: 700;
+            display: block;
+            margin-top: 5px;
+            font-size: 1rem;
+        }
+
+        .currency-update {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cities-list,
+        .attractions-list {
+            margin-top: 25px;
+        }
+
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.3rem;
+        }
+
+        .section-title i {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .tag {
+            background: var(--light-color);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            border: 1px solid #e2e8f0;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .tag:hover {
+            background: var(--gradient);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Loading State */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 80px;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .loading p {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+            font-weight: 600;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 6px solid #e2e8f0;
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Update Banner */
+        .update-banner {
+            background: var(--gradient);
+            color: white;
+            padding: 18px;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        .update-banner .last-updated {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+        }
+
+        .update-banner .last-updated i {
+            font-size: 1.3rem;
+        }
+
+        .update-banner .update-btn {
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .update-banner .update-btn:hover {
+            background: var(--light-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-light);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 1400px) {
+            .countries-grid {
+                grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .country-flag {
+                height: 240px;
+            }
+
+            .country-name {
+                font-size: 1.6rem;
+            }
+
+            .stat-box {
+                padding: 15px 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.3rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .countries-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-stats {
+                gap: 15px;
+            }
+
+            .stat-box {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+
+            .search-box input {
+                padding: 16px 25px 16px 50px;
+                font-size: 1.1rem;
+            }
+
+            .country-name {
+                font-size: 1.5rem;
+            }
+
+            .filter-btn {
+                padding: 12px 18px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header {
+                padding: 3rem 0;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .search-box input {
+                padding: 14px 20px 14px 45px;
+                font-size: 1rem;
+            }
+
+            .update-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .update-banner .last-updated {
+                font-size: 1rem;
+            }
+
+            .country-flag {
+                height: 220px;
+            }
+        }
+
+        /* Animations */
+        .country-card {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .country-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .country-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .country-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .country-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .country-card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .country-card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .country-card:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        .country-card:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+
+        .country-card:nth-child(9) {
+            animation-delay: 0.9s;
+        }
+
+        .country-card:nth-child(10) {
+            animation-delay: 1s;
+        }
+
+        .country-card:nth-child(11) {
+            animation-delay: 1.1s;
+        }
+
+        .country-card:nth-child(12) {
+            animation-delay: 1.2s;
+        }
+
+        .country-card:nth-child(13) {
+            animation-delay: 1.3s;
+        }
+
+        .country-card:nth-child(14) {
+            animation-delay: 1.4s;
+        }
+
+        .country-card:nth-child(15) {
+            animation-delay: 1.5s;
+        }
+
+        .country-card:nth-child(16) {
+            animation-delay: 1.6s;
+        }
+
+        .country-card:nth-child(17) {
+            animation-delay: 1.7s;
+        }
+
+        .country-card:nth-child(18) {
+            animation-delay: 1.8s;
+        }
+
+        .country-card:nth-child(19) {
+            animation-delay: 1.9s;
+        }
+
+        .country-card:nth-child(20) {
+            animation-delay: 2s;
+        }
+
+        .country-card:nth-child(21) {
+            animation-delay: 2.1s;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1><i class="fas fa-map-marked-alt floating" style="animation-delay: 0.3s;"></i> المرشد السياحي العربي
+                </h1>
+                <p class="subtitle">أول منصة عربية شاملة تحتوي على كل المعلومات السياحية عن الدول العربية مع تحديث أسعار
+                    العملات مباشرة من مصادر موثوقة</p>
+
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="ابحث عن دولة عربية...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+
+                <div class="header-stats">
+                    <div class="stat-box">
+                        <i class="fas fa-globe-africa"></i>
+                        <span>21 دولة عربية</span>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-landmark"></i>
+                        <span>+500 منطقة سياحية</span>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>أسعار عملات محدثة</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="update-banner">
+            <div class="last-updated">
+                <i class="fas fa-clock"></i>
+                <span>آخر تحديث لأسعار العملات: <span id="lastUpdatedTime">يتم التحميل...</span></span>
+            </div>
+            <button class="update-btn" onclick="fetchExchangeRates()">
+                <i class="fas fa-sync-alt"></i>
+                تحديث الأسعار الآن
+            </button>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-region="all">
+                <i class="fas fa-list"></i>
+                الكل
+            </button>
+            <button class="filter-btn" data-region="gulf">
+                <i class="fas fa-oil-can"></i>
+                الخليج
+            </button>
+            <button class="filter-btn" data-region="north-africa">
+                <i class="fas fa-desert"></i>
+                شمال أفريقيا
+            </button>
+            <button class="filter-btn" data-region="levant">
+                <i class="fas fa-mountain"></i>
+                المشرق
+            </button>
+            <button class="filter-btn" data-region="africa">
+                <i class="fas fa-globe-africa"></i>
+                القرن الأفريقي
+            </button>
+        </div>
+
+        <div id="countriesContainer">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>جاري تحميل بيانات الدول...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // بيانات الدول العربية مع تصنيفها حسب المنطقة
+        const arabCountries = [
+            // دول الخليج
+            {
+                name: "المملكة العربية السعودية",
+                flag: "https://flagcdn.com/w320/sa.png",
+                capital: "الرياض",
+                language: "العربية",
+                religion: "الإسلام",
+                currency: "الريال السعودي",
+                currencyCode: "SAR",
+                majorCities: ["جدة", "مكة المكرمة", "المدينة المنورة", "الدمام", "الخبر"],
+                touristAttractions: ["الكعبة المشرفة", "المسجد النبوي", "مدائن صالح", "الدرعية التاريخية", "شاطئ نصف القمر"],
+                region: "gulf"
+            },
+            {
+                name: "الإمارات العربية المتحدة",
+                flag: "https://flagcdn.com/w320/ae.png",
+                capital: "أبوظبي",
+                language: "العربية",
+                religion: "الإسلام",
+                currency: "الدرهم الإماراتي",
+                currencyCode: "AED",
+                majorCities: ["دبي", "الشارقة", "عجمان", "رأس الخيمة", "الفجيرة"],
+                touristAttractions: ["برج خليفة", "جزيرة ياس", "مسجد الشيخ زايد", "حديقة فريرست", "شاطئ الجميرا"],
+                region: "gulf"
+            },
+            {
+                name: "دولة الكويت",
+                flag: "https://flagcdn.com/w320/kw.png",
+                capital: "مدينة الكويت",
+                language: "العربية",
+                religion: "الإسلام",
+                currency: "الدينار الكويتي",
+                currencyCode: "KWD",
+                majorCities: ["الأحمدي", "حولي", "الفروانية", "الجهراء", "مبارك الكبير"],
+                touristAttractions: ["أبراج الكويت", "جزيرة فيلكا", "المسجد الكبير", "مارينا مول", "شاطئ المسيلة"],
+                region: "gulf"
+            },
+            {
+                name: "دولة قطر",
+                flag: "https://flagcdn.com/w320/qa.png",
+                capital: "الدوحة",
+                language: "العربية",
+                religion: "الإسلام",
+                currency: "الريال القطري",
+                currencyCode: "QAR",
+                majorCities: ["الريان", "الوكرة", "الخور", "الشمال", "أم صلال"],
+                touristAttractions: ["سوق واقف", "جزيرة اللؤلؤة", "كورنيش الدوحة", "متحف الفن الإسلامي", "خليج خور العديد"],
+                region: "gulf"
+            },
+            {
+                name: "سلطنة عمان",
+                flag: "https://flagcdn.com/w320/om.png",
+                capital: "مسقط",
+                language: "العربية",
+                religion: "الإسلام",
+                currency: "الريال العماني",
+                currencyCode: "OMR",
+                majorCities: ["صلالة", "صور", "نزوى", "صحار", "البريمي"],
+                touristAttractions: ["قصر العلم", "وادي شاب", "قلعة نزوى", "شاطئ البستان", "جبل شمس"],
+                region: "gulf"
+            },
+            {
+                name: "مملكة البحرين",
+                flag: "https://flagcdn.com/w320/bh.png",
+                capital: "المنامة",
+                language: "العربية",
+                religion: "الإسلام",
+                currency: "الدينار البحريني",
+                currencyCode: "BHD",
+                majorCities: ["المحرق", "رفاع", "مدينة حمد", "جد حفص", "الدراز"],
+                touristAttractions: ["مسجد الفاتح", "قلعة البحرين", "شجرة الحياة", "سوق المنامة", "حديقة الجبيل"],
+                region: "gulf"
+            },
+
+            // شمال أفريقيا
+            {
+                name: "جمهورية مصر العربية",
+                flag: "https://flagcdn.com/w320/eg.png",
+                capital: "القاهرة",
+                language: "العربية",
+                religion: "الإسلام",
+                currency: "الجنيه المصري",
+                currencyCode: "EGP",
+                majorCities: ["الإسكندرية", "الجيزة", "شرم الشيخ", "الأقصر", "أسوان"],
+                touristAttractions: ["أهرامات الجيزة", "معبد أبو سمبل", "وادي الملوك", "خليج نعمة", "المتحف المصري"],
+                region: "north-africa"
+            },
+            {
+                name: "المملكة المغربية",
+                flag: "https://flagcdn.com/w320/ma.png",
+                capital: "الرباط",
+                language: "العربية، الأمازيغية",
+                religion: "الإسلام",
+                currency: "الدرهم المغربي",
+                currencyCode: "MAD",
+                majorCities: ["الدار البيضاء", "فاس", "مراكش", "طنجة", "مكناس"],
+                touristAttractions: ["جامع الفنا", "صومعة حسان", "شلالات أوزود", "الصحراء المغربية", "مدينة شفشاون"],
+                region: "north-africa"
+            },
+            {
+                name: "الجمهورية التونسية",
+                flag: "https://flagcdn.com/w320/tn.png",
+                capital: "تونس",
+                language: "العربية",
+                religion: "الإسلام",
+                currency: "الدينار التونسي",
+                currencyCode: "TND",
+                majorCities: ["صفاقس", "سوسة", "قابس", "بنزرت", "القيروان"],
+                touristAttractions: ["قرطاج الأثرية", "مدينة سيدي بو سعيد", "متحف باردو", "جزيرة جربة", "شاطئ الحمامات"],
+                region: "north-africa"
+            },
+            {
+                name: "الجمهورية الجزائرية الديمقراطية الشعبية",
+                flag: "https://flagcdn.com/w320/dz.png",
+                capital: "الجزائر",
+                language: "العربية، الأمازيغية",
+                religion: "الإسلام",
+                currency: "الدينار الجزائري",
+                currencyCode: "DZD",
+                majorCities: ["وهران", "قسنطينة", "عنابة", "باتنة", "بجاية"],
+                touristAttractions: ["قلعة بني حماد", "حديقة التاسيلي", "شاطئ عنابة", "مقام الشهيد", "الصحراء الجزائرية"],
+                region: "north-africa"
+            },
+            {
+                name: "ليبيا",
+                flag: "https://flagcdn.com/w320/ly.png",
+                capital: "طرابلس",
+                language: "العربية",
+                religion: "الإسلام",
+                currency: "الدينار الليبي",
+                currencyCode: "LYD",
+                majorCities: ["بنغازي", "مصراتة", "طبرق", "سبها", "الزاوية"],
+                touristAttractions: ["لبدة الكبرى", "صحراء ليبيا", "مدينة غدامس", "المسرح الروماني", "شاطئ زوارة"],
+                region: "north-africa"
+            },
+            {
+                name: "موريتانيا",
+                flag: "https://flagcdn.com/w320/mr.png",
+                capital: "نواكشوط",
+                language: "العربية",
+                religion: "الإسلام",
+                currency: "الأوقية الموريتانية",
+                currencyCode: "MRU",
+                majorCities: ["نواذيبو", "كيهيدي", "زويرات", "روصو", "ألاك"],
+                touristAttractions: ["حديقة بانك دارجوين", "شاطئ نواذيبو", "وادي النقرة", "المكتبة الوطنية", "متحف نواكشوط"],
+                region: "north-africa"
+            },
+
+            // المشرق العربي
+            {
+                name: "الجمهورية العربية السورية",
+                flag: "https://flagcdn.com/w320/sy.png",
+                capital: "دمشق",
+                language: "العربية",
+                religion: "الإسلام",
+                currency: "الليرة السورية",
+                currencyCode: "SYP",
+                majorCities: ["حلب", "حمص", "اللاذقية", "حماة", "دير الزور"],
+                touristAttractions: ["قلعة حلب", "تدمر الأثرية", "المسجد الأموي", "صالحية دمشق", "قلعة الحصن"],
+                region: "levant"
+            },
+            {
+                name: "الجمهورية اللبنانية",
+                flag: "https://flagcdn.com/w320/lb.png",
+                capital: "بيروت",
+                language: "العربية",
+                religion: "الإسلام، المسيحية",
+                currency: "الليرة اللبنانية",
+                currencyCode: "LBP",
+                majorCities: ["طرابلس", "صيدا", "صور", "زحلة", "جبيل"],
+                touristAttractions: ["مغارة جعيتا", "بلدة بعلبك", "شاطئ الروشة", "قلعة بعلبك", "وسط بيروت التاريخي"],
+                region: "levant"
+            },
+            {
+                name: "المملكة الأردنية الهاشمية",
+                flag: "https://flagcdn.com/w320/jo.png",
+                capital: "عمان",
+                language: "العربية",
+                religion: "الإسلام",
+                currency: "الدينار الأردني",
+                currencyCode: "JOD",
+                majorCities: ["الزرقاء", "إربد", "العقبة", "الكرك", "مادبا"],
+                touristAttractions: ["البتراء", "وادي رم", "البحر الميت", "جبل القلعة", "المدرج الروماني"],
+                region: "levant"
+            },
+            {
+                name: "دولة فلسطين",
+                flag: "https://flagcdn.com/w320/ps.png",
+                capital: "القدس",
+                language: "العربية",
+                religion: "الإسلام، المسيحية",
+                currency: "الشيكل",
+                currencyCode: "ILS",
+                majorCities: ["غزة", "الخليل", "نابلس", "بيت لحم", "أريحا"],
+                touristAttractions: ["المسجد الأقصى", "كنيسة المهد", "قبة الصخرة", "جبل الزيتون", "البحر الميت"],
+                region: "levant"
+            },
+            {
+                name: "الجمهورية العراقية",
+                flag: "https://flagcdn.com/w320/iq.png",
+                capital: "بغداد",
+                language: "العربية، الكردية",
+                religion: "الإسلام",
+                currency: "الدينار العراقي",
+                currencyCode: "IQD",
+                majorCities: ["البصرة", "الموصل", "أربيل", "السليمانية", "النجف"],
+                touristAttractions: ["بابل الأثرية", "الزقورة", "المسجد الكاظمي", "شلالات هلالة", "أهوار العراق"],
+                region: "levant"
+            },
+
+            // القرن الأفريقي
+            {
+                name: "جمهورية السودان",
+                flag: "https://flagcdn.com/w320/sd.png",
+                capital: "الخرطوم",
+                language: "العربية، الإنجليزية",
+                religion: "الإسلام",
+                currency: "الجنيه السوداني",
+                currencyCode: "SDG",
+                majorCities: ["أم درمان", "بورتسودان", "الأبيض", "نيالا", "كادقلي"],
+                touristAttractions: ["نهر النيل", "أهرامات مروي", "حديقة الدندر", "جزيرة توتي", "جبل مرة"],
+                region: "africa"
+            },
+            {
+                name: "الصومال",
+                flag: "https://flagcdn.com/w320/so.png",
+                capital: "مقديشو",
+                language: "الصومالية، العربية",
+                religion: "الإسلام",
+                currency: "الشلن الصومالي",
+                currencyCode: "SOS",
+                majorCities: ["هرجيسا", "بوساسو", "بربرة", "كيسمايو", "بلدوين"],
+                touristAttractions: ["شواطئ مقديشو", "كهوف لاس جيل", "جزيرة سعد الدين", "سوق باكارا", "منطقة شبيلي"],
+                region: "africa"
+            },
+            {
+                name: "جيبوتي",
+                flag: "https://flagcdn.com/w320/dj.png",
+                capital: "جيبوتي",
+                language: "العربية، الفرنسية",
+                religion: "الإسلام",
+                currency: "الفرنك الجيبوتي",
+                currencyCode: "DJF",
+                majorCities: ["علي صبيح", "تاجورة", "أوبوك", "دخيل", "آرتا"],
+                touristAttractions: ["بحيرة عسل", "خليج تاجورة", "جزر موشا", "منتزه داي فورست", "شاطئ دورالي"],
+                region: "africa"
+            },
+            {
+                name: "جزر القمر",
+                flag: "https://flagcdn.com/w320/km.png",
+                capital: "موروني",
+                language: "القمرية، العربية، الفرنسية",
+                religion: "الإسلام",
+                currency: "الفرنك القمري",
+                currencyCode: "KMF",
+                majorCities: ["موتسامودو", "فومبوني", "دوموني", "تسمبيو", "أنجوان"],
+                touristAttractions: ["جبل كارتالا", "شاطئ شوموني", "بحيرة سالي", "جزيرة موهيلي", "المدينة القديمة في موروني"],
+                region: "africa"
+            },
+            {
+                name: "اليمن",
+                flag: "https://flagcdn.com/w320/ye.png",
+                capital: "صنعاء",
+                language: "العربية",
+                religion: "الإسلام",
+                currency: "الريال اليمني",
+                currencyCode: "YER",
+                majorCities: ["عدن", "تعز", "الحديدة", "إب", "المكلا"],
+                touristAttractions: ["صنعاء القديمة", "جزيرة سقطرى", "وادي حضرموت", "قلعة القاهرة", "شاطئ الغدير"],
+                region: "africa"
+            }
+        ];
+
+        // متغير لحفظ أسعار الصرف
+        let exchangeRates = {};
+        let lastUpdated = null;
+
+        // عرض الدول في الصفحة
+        document.addEventListener('DOMContentLoaded', function () {
+            const countriesContainer = document.getElementById('countriesContainer');
+
+            // جلب أسعار الصرف أولاً
+            fetchExchangeRates();
+
+            // إعداد نظام البحث
+            setupSearch();
+
+            // إعداد نظام التصفية
+            setupFilters();
+        });
+
+        // جلب أسعار الصرف من API
+        async function fetchExchangeRates() {
+            const countriesContainer = document.getElementById('countriesContainer');
+            const lastUpdatedTime = document.getElementById('lastUpdatedTime');
+
+            try {
+                // عرض حالة التحميل
+                countriesContainer.innerHTML = `
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>جاري تحديث أسعار العملات...</p>
+                    </div>
+                `;
+
+                // استخدام API مجاني لأسعار الصرف (مثال: ExchangeRate-API)
+                // ملاحظة: في الواقع تحتاج إلى الحصول على مفتاح API ساري المفعول
+                const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+                const data = await response.json();
+
+                // حفظ أسعار الصرف
+                exchangeRates = data.rates;
+                lastUpdated = new Date(data.time_last_updated * 1000);
+
+                // تحديث وقت التحديث الأخير
+                lastUpdatedTime.textContent = formatDate(lastUpdated);
+
+                // عرض الدول بعد الحصول على أسعار الصرف
+                displayCountries();
+
+            } catch (error) {
+                console.error('Error fetching exchange rates:', error);
+                lastUpdatedTime.textContent = "فشل التحديث - استخدام بيانات مخزنة";
+
+                // استخدام أسعار افتراضية في حالة فشل API
+                exchangeRates = {
+                    "SAR": 3.75,
+                    "AED": 3.67,
+                    "KWD": 0.31,
+                    "QAR": 3.64,
+                    "OMR": 0.38,
+                    "BHD": 0.38,
+                    "EGP": 30.90,
+                    "MAD": 10.06,
+                    "TND": 3.11,
+                    "DZD": 134.45,
+                    "LYD": 4.83,
+                    "MRU": 36.00,
+                    "SYP": 13000,
+                    "LBP": 15000,
+                    "JOD": 0.71,
+                    "ILS": 3.63,
+                    "IQD": 1310,
+                    "SDG": 560,
+                    "SOS": 570,
+                    "DJF": 177,
+                    "KMF": 440,
+                    "YER": 250
+                };
+
+                lastUpdated = new Date();
+                lastUpdatedTime.textContent = formatDate(lastUpdated) + " (بيانات مخزنة)";
+
+                displayCountries();
+            }
+        }
+
+        // عرض الدول مع أسعار الصرف
+        function displayCountries() {
+            const countriesContainer = document.getElementById('countriesContainer');
+
+            // مسح المحتوى الحالي
+            countriesContainer.innerHTML = '';
+
+            // إنشاء بطاقات الدول
+            arabCountries.forEach(country => {
+                const countryCard = document.createElement('div');
+                countryCard.className = 'country-card';
+                countryCard.dataset.region = country.region;
+
+                // حساب سعر الصرف
+                const rate = exchangeRates[country.currencyCode] || country.currencyValue;
+                const currencyValue = rate ? `(1 دولار = ${rate.toFixed(2)} ${country.currency.split(' ')[0]})` : "(غير متوفر)";
+
+                countryCard.innerHTML = `
+                    <div class="country-flag">
+                        <img src="${country.flag}" alt="${country.name}" loading="lazy">
+                    </div>
+                    <div class="country-info">
+                        <h3 class="country-name">
+                            ${country.name}
+                            <span>${country.capital}</span>
+                        </h3>
+                        <div class="country-details">
+                            <div class="detail-row">
+                                <div class="detail-label">اللغة:</div>
+                                <div class="detail-value">${country.language}</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">الديانة:</div>
+                                <div class="detail-value">${country.religion}</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">العملة:</div>
+                                <div class="detail-value">
+                                    ${country.currency}
+                                    <span class="currency-value">${currencyValue}</span>
+                                    <span class="currency-update">
+                                        <i class="fas fa-clock"></i>
+                                        ${formatDate(lastUpdated)}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="cities-list">
+                            <div class="section-title">
+                                <i class="fas fa-city"></i>
+                                أهم المدن
+                            </div>
+                            <div class="tags">
+                                ${country.majorCities.map(city => `<span class="tag">${city}</span>`).join('')}
+                            </div>
+                        </div>
+                        
+                        <div class="attractions-list">
+                            <div class="section-title">
+                                <i class="fas fa-map-marked-alt"></i>
+                                مناطق سياحية
+                            </div>
+                            <div class="tags">
+                                ${country.touristAttractions.map(att => `<span class="tag">${att}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                countriesContainer.appendChild(countryCard);
+            });
+        }
+
+        // إعداد نظام البحث
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+
+            searchInput.addEventListener('input', function () {
+                const searchTerm = this.value.trim().toLowerCase();
+                const countryCards = document.querySelectorAll('.country-card');
+
+                countryCards.forEach(card => {
+                    const countryName = card.querySelector('.country-name').textContent.toLowerCase();
+                    if (countryName.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        // إعداد نظام التصفية حسب المنطقة
+        function setupFilters() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    // إزالة التنشيط من جميع الأزرار
+                    filterBtns.forEach(b => b.classList.remove('active'));
+
+                    // تنشيط الزر المحدد
+                    this.classList.add('active');
+
+                    // تصفية البطاقات حسب المنطقة
+                    const region = this.dataset.region;
+                    const countryCards = document.querySelectorAll('.country-card');
+
+                    countryCards.forEach(card => {
+                        if (region === 'all' || card.dataset.region === region) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        }
+
+        // تنسيق التاريخ
+        function formatDate(date) {
+            if (!date) return "غير معروف";
+
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            };
+
+            return date.toLocaleDateString('ar-EG', options);
+        }
+    </script>
+</body>
+
+</html>
